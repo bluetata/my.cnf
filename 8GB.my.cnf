@@ -74,8 +74,8 @@ log_bin_trust_function_creators     = 1 # If binary logging is not enabled, log_
 #log_queries_not_using_indexes
 long_query_time                     = 10        #default: 10
 max_binlog_size                     = 256M      #max size for binlog before rolling
-expire_logs_days                    = 30        #binlog files older than this will be purged *
-binlog_expire_logs_seconds          = 604800
+#expire_logs_days                    = 30        #binlog files older than this will be purged * （The syntax 'expire-logs-days' is deprecated and will be removed in a future release. Please use binlog_expire_logs_seconds instead.）
+binlog_expire_logs_seconds          = 2592000   # keep the log 30days.(In mysql 8.0 the default expiration for logfiles is 30 days, governed by the variable binlog_expire_logs_seconds, which defaults to 2592000 seconds. )
 
 ## Per-Thread Buffers * (max_connections) = total per-thread mem usage
 thread_stack                        = 256K      #default: 32bit: 192K, 64bit: 256K
